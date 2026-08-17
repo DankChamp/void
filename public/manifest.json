@@ -1,0 +1,17 @@
+{
+  "name": "VOID Portfolio",
+  "short_name": "VOID",
+  "description": "Student dev & R&D builder | Linux · AI agents · Rust · Python · robotics · hardware",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#00ff9c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

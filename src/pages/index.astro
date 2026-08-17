@@ -1,0 +1,341 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'Emma',
+    description: 'Personal AI OS — planning, management, scheduling, voice assistant. FastAPI, 4-tier memory, local LLMs, dependency injection, Postgres-ready.',
+    tags: ['Python', 'FastAPI', 'Ollama', 'Vosk', 'Piper TTS', 'SQLite'],
+    url: 'https://github.com/DankChamp/emma',
+    stars: 2,
+    color: 'void',
+  },
+  {
+    name: 'Luna',
+    description: 'Coding & software engineering agent. Highly customizable, tool calling, agent orchestration, local-first. Opencode on steroids.',
+    tags: ['Python', 'Rich', 'Prompt Toolkit', 'Anthropic', 'OpenAI', 'SQLAlchemy'],
+    url: 'https://github.com/DankChamp/luna',
+    stars: 1,
+    color: 'cyber',
+  },
+  {
+    name: 'Aqua',
+    description: 'Research & study assistant. Quizzes, knowledge capture, literature review, web search. Locally hosted, privacy-first, ChromaDB vector search.',
+    tags: ['Python', 'FastAPI', 'ChromaDB', 'DuckDuckGo', 'Sentence Transformers'],
+    url: 'https://github.com/DankChamp/aqua',
+    stars: 1,
+    color: 'cyber',
+  },
+  {
+    name: 'VOIDX',
+    description: 'PX Organization flagship — full-stack gaming platform: tournaments, auth, notifications, future wallet. React + TypeScript + FastAPI.',
+    tags: ['React', 'TypeScript', 'FastAPI', 'SQLAlchemy', 'JWT', 'Zustand'],
+    url: 'https://github.com/DankChamp/VOIDX',
+    stars: 1,
+    color: 'warning',
+  },
+  {
+    name: 'Nebula GTK',
+    description: 'GTK4/libadwaita frontend for Void Linux package management (XBPS). Waypoint/Btrfs snapshot integration. Rust + GTK 4.',
+    tags: ['Rust', 'GTK 4', 'libadwaita', 'XBPS', 'Void Linux', 'Btrfs'],
+    url: 'https://github.com/DankChamp/nebula-gtk',
+    stars: 0,
+    color: 'void',
+  },
+  {
+    name: 'DevPair',
+    description: 'Real-time collaborative task board + AI pair programming. Shared Groq key, multi-project, server-side sync. HTML/JS/PHP.',
+    tags: ['HTML', 'JavaScript', 'PHP', 'Groq API', 'Real-time'],
+    url: 'https://github.com/DankChamp/dev-pair',
+    stars: 2,
+    color: 'warning',
+  },
+];
+
+const skills = [
+  { category: 'Languages', items: ['Python', 'Rust', 'TypeScript', 'Shell', 'JavaScript', 'HTML/CSS'] },
+  { category: 'AI/ML', items: ['Ollama', 'Local LLMs', 'Tool Calling', 'Agent Orchestration', 'RAG', 'Vector Search'] },
+  { category: 'Backend', items: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'SQLite', 'Redis', 'WebSockets'] },
+  { category: 'Frontend', items: ['React', 'Vite', 'Zustand', 'Tailwind', 'TypeScript', 'Astro'] },
+  { category: 'Systems', items: ['Void Linux', 'GTK 4', 'libadwaita', 'XBPS', 'runit', 'Docker'] },
+  { category: 'Hardware', items: ['Raspberry Pi', 'LoRa', 'ESP32', 'Electronics', 'PC Building', 'Btrfs'] },
+  { category: 'Tools', items: ['Git', 'GitHub Actions', 'Dependabot', 'CodeQL', 'Ruff', 'Mypy', 'Clippy'] },
+];
+
+const timeline = [
+  { year: '2024', title: 'Started VOID Persona', description: 'Defined identity as student dev & R&D builder. Linux, AI, Rust, Python, robotics, hardware focus.', type: 'milestone' },
+  { year: '2024', title: 'Emma — Personal AI OS', description: 'Built 4-tier memory system, voice interface (Vosk + Piper), FastAPI backend, PySide6 GUI, runit service.', type: 'project' },
+  { year: '2024', title: 'Luna — Coding Agent', description: 'Opencode-style CLI agent with tool calling, session persistence, multi-provider LLM support.', type: 'project' },
+  { year: '2024', title: 'Aqua — Research Agent', description: 'Study assistant with quiz generation, ChromaDB vector search, web search, document ingestion.', type: 'project' },
+  { year: '2024', title: 'VOIDX — Gaming Platform', description: 'Full-stack React + FastAPI gaming platform for PX Organization. Auth, tournaments, notifications.', type: 'project' },
+  { year: '2024', title: 'Nebula GTK', description: 'GTK4/libadwaita Void Linux package manager. Waypoint/Btrfs snapshot integration. Rust.', type: 'project' },
+  { year: '2024', title: 'PX Organization Founded', description: 'Co-founded tech organization focused on software, AI, innovation, and future tech ventures.', type: 'milestone' },
+  { year: '2024', title: 'ZappInnovate COO', description: 'Robotics workshops & STEM education. Leading operations for educational technology startup.', type: 'role' },
+  { year: '2024', title: 'BroniqLabs Lead Web Dev', description: 'Web development & technology work. Building client projects and internal tools.', type: 'role' },
+  { year: '2023', title: 'Void Linux Daily Driver', description: 'Switched to Void Linux (runit + XBPS) on ThinkPad T490. Deep dive into Linux systems.', type: 'milestone' },
+  { year: '2022', title: 'First AI Experiments', description: 'Started experimenting with local LLMs, Ollama, prompt engineering, agent concepts.', type: 'milestone' },
+];
+
+const stats = [
+  { label: 'Repos', value: '6' },
+  { label: 'Languages', value: '6+' },
+  { label: 'Years Coding', value: '3+' },
+  { label: 'Projects', value: '15+' },
+];
+---
+
+<Layout title="VOID — Student Dev & R&D Builder" description="Student developer & R&D enthusiast building with Linux, AI, Rust, Python, robotics, electronics, and open-source tech. Founder/co-founder across PX Organization, HyperClutch, ZappInnovate.">
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center justify-center px-6">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="text-center reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-[var(--accent)] font-mono text-xs uppercase tracking-wider mb-6">
+          <span class="relative">
+            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
+            <span class="relative z-10">building in public</span>
+          </span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-mono leading-tight mb-6">
+          <span class="glitch" data-text="VOID">VOID</span>
+          <span class="text-[var(--text-secondary)]">.</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-10 font-light">
+          Student dev & R&D builder · Linux · AI agents · Rust · Python · robotics · hardware
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <a href="#projects" class="btn-primary">
+            View Projects
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-secondary">
+            GitHub
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          {stats.map(stat => (
+            <div class="text-center reveal">
+              <div class="stat-number">{stat.value}</div>
+              <div class="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="section-divider"><span>about</span></div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl md:text-4xl font-bold font-mono mb-6">
+            <span class="text-[var(--accent)]">whoami</span>
+          </h2>
+          <div class="space-y-4 text-[var(--text-secondary)] leading-relaxed">
+            <p>I learn by <strong class="text-[var(--text-primary)]">building</strong> — concepts through working code before theory. I prefer <strong class="text-[var(--text-primary)]">lightweight, customizable, open-source</strong> software and reject unnecessary bloat.</p>
+            <p>Currently a <strong class="text-[var(--accent)]">student (CBSE Class 10)</strong> independently learning software engineering and advanced technology outside school. Running <strong class="text-[var(--accent)]">Void Linux</strong> (runit + XBPS) on a ThinkPad T490 as my daily driver.</p>
+            <p>Building a <strong class="text-[var(--cyber)]">personal multi-agent AI ecosystem</strong> — Emma (personal OS), Luna (coding agent), Aqua (research agent) — with the long-term goal of an interconnected second brain.</p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            {['Void Linux', 'AI Agents', 'Rust', 'Python', 'Robotics', 'Electronics', 'Open Source', 'Self-Hosted'].map(tag => (
+              <span class="badge badge-void">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="terminal">
+            <div class="terminal-header">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot.yellow"></span>
+              <span class="terminal-dot.green"></span>
+              <span class="font-mono text-xs text-[var(--text-secondary)]">~/void $ whoami</span>
+            </div>
+            <pre class="font-mono text-sm whitespace-pre-wrap text-[var(--text-primary)]"><code>{`$ cat /etc/os-release
+NAME="Void Linux"
+INIT="runit"
+PACKAGE_MANAGER="XBPS"
+
+$ cat ~/.config/void/profile
+handle=VOID
+role=student | dev | builder | R&D enthusiast
+os=Void Linux (runit + XBPS)
+hardware=ThinkPad T490 | i7-8th | 16GB RAM
+
+$ ls ~/projects/ai/
+emma/    # personal OS, planning, voice, 4-tier memory
+luna/    # coding agent, tool calling, orchestration
+aqua/    # research, quizzes, ChromaDB, web search
+
+$ ls ~/projects/orgs/
+px-organization/      # co-founder, software & AI ventures
+hyperclutch/          # flagship gaming platform
+zappinnovate/         # COO, robotics & STEM workshops
+broniqlabs/           # lead web dev, client projects
+
+$ cat ~/philosophy.txt
+"build things, understand how they work,
+automate repetitive work, prefer open-source,
+learn through actually making projects."
+            `}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-24 px-6 bg-[var(--bg-secondary)]/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="section-divider"><span>projects</span></div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, i) => (
+          <article class="project-card reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+            <div class="absolute top-4 right-4">
+              <span class={`badge badge-${project.color}`}>{project.color === 'void' ? 'AI' : project.color === 'cyber' ? 'Agent' : 'Full-Stack'}</span>
+            </div>
+
+            <h3 class="text-xl font-bold font-mono mb-2 flex items-center gap-2">
+              <a href={project.url} target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition-colors">{project.name}</a>
+              <a href={project.url} target="_blank" rel="noopener" class="text-[var(--text-secondary)] hover:text-[var(--accent)] text-sm" aria-label="GitHub">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </h3>
+
+            <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">{project.description}</p>
+
+            <div class="project-card-tags">
+              {project.tags.slice(0, 5).map(tag => (
+                <span class="text-xs px-2 py-1 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border)]">{tag}</span>
+              ))}
+              {project.tags.length > 5 && (
+                <span class="text-xs px-2 py-1 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border)]">+{project.tags.length - 5}</span>
+              )}
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--text-secondary)]">
+              <span>⭐ {project.stars}</span>
+              <span class="font-mono">{project.color === 'void' ? 'Python' : project.color === 'cyber' ? 'Python' : 'TypeScript'}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center mt-12 reveal">
+        <a href="https://github.com/DankChamp?tab=repositories" target="_blank" rel="noopener" class="btn-secondary">
+          All Repositories
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="section-divider"><span>tech stack</span></div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((skill, i) => (
+          <div class="card reveal" style={{ transitionDelay: `${i * 100}ms` }}>
+            <h3 class="font-mono text-lg font-semibold text-[var(--accent)] mb-4 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
+              {skill.category}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {skill.items.map(item => (
+                <span class="badge badge-void">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="py-24 px-6 bg-[var(--bg-secondary)]/50">
+    <div class="max-w-3xl mx-auto">
+      <div class="section-divider"><span>timeline</span></div>
+
+      <div class="space-y-0">
+        {timeline.map((item, i) => (
+          <div class="timeline-item reveal" style={{ transitionDelay: `${i * 50}ms` }}>
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="font-mono text-lg font-bold text-[var(--accent)] min-w-[80px]">{item.year}</span>
+              <span class={`badge badge-${item.type === 'milestone' ? 'void' : item.type === 'project' ? 'cyber' : 'warning'}`}>
+                {item.type === 'milestone' ? 'Milestone' : item.type === 'project' ? 'Project' : 'Role'}
+              </span>
+            </div>
+            <h4 class="text-lg font-semibold mb-1">{item.title}</h4>
+            <p class="text-[var(--text-secondary)] text-sm">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="section-divider"><span>contact</span></div>
+
+      <h2 class="text-3xl md:text-4xl font-bold font-mono mb-4 reveal">
+        Let's <span class="text-[var(--accent)]">build</span> something
+      </h2>
+      <p class="text-[var(--text-secondary)] mb-10 max-w-xl mx-auto reveal">
+        Open to internships, collaborations, and interesting problems.
+        Currently seeking opportunities in backend engineering, AI/ML, systems programming, or robotics.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal">
+        <a href="mailto:void@px.org" class="btn-primary">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Email Me
+        </a>
+        <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-secondary">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="/resume.pdf" class="btn-ghost">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+          Resume
+        </a>
+      </div>
+
+      <div class="mt-16 reveal">
+        <div class="terminal max-w-md mx-auto">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot.yellow"></span>
+            <span class="terminal-dot.green"></span>
+            <span class="font-mono text-xs text-[var(--text-secondary)]">~/void $ git commit -m "build things, understand how they work"</span>
+          </div>
+          <pre class="font-mono text-sm whitespace-pre-wrap text-[var(--text-primary)]"><code>{`[main 7f3a2b1] build things, understand how they work
+ 1 file changed, 1 insertion(+)
+ create mode 100644 portfolio/index.html
+
+$ git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.2 KiB | 1.2 MiB/s, done.
+To https://github.com/DankChamp/dankchamp.github.io.git
+   a1b2c3d..7f3a2b1  main -> main
+
+$ echo "deployed to github pages ✓"
+deployed to github pages ✓`}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
