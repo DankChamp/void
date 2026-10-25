@@ -1,54 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-label="PX lineage: PS Foundation to PX, split into Hawk's branch and VOIDX, planned recombination into PX III">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-label="PX lineage: PS Foundation to PX, split into Hawk's branch and VOIDX, planned recombination into PX III">
   <defs>
-    <pattern id="grid2" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M60 0H0V60" fill="none" stroke="#E8EDEB" stroke-opacity="0.03"/>
+    <pattern id="grid2" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#E8EDEB" stroke-opacity="0.03"/>
     </pattern>
   </defs>
 
-  <rect width="1200" height="330" fill="#0A0D0E"/>
-  <rect width="1200" height="330" fill="url(#grid2)"/>
+  <rect width="1000" height="300" fill="#0A0D0E"/>
+  <rect width="1000" height="300" fill="url(#grid2)"/>
 
-  <text x="48" y="52" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="5" fill="#59635F">LINEAGE</text>
+  <text x="40" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="5" fill="#59635F">LINEAGE</text>
 
   <!-- origin -->
-  <circle cx="86" cy="165" r="4" fill="#59635F"/>
-  <text x="86" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#8A9591">PS FOUNDATION</text>
-  <text x="86" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">origin</text>
+  <circle cx="90" cy="150" r="4" fill="#59635F"/>
+  <text x="90" y="188" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.4" fill="#8A9591">PS FOUNDATION</text>
+  <text x="90" y="206" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.4" fill="#3E4744">origin</text>
 
   <!-- origin -> PX -->
-  <path d="M90 165H232" stroke="#2A3233" stroke-width="1" fill="none"/>
-  <circle cx="244" cy="165" r="4" fill="#E8EDEB"/>
-  <text x="244" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">PX</text>
-  <text x="244" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">two founders</text>
+  <path d="M94 150H226" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <circle cx="230" cy="150" r="4" fill="#E8EDEB"/>
+  <text x="230" y="188" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.4" fill="#E8EDEB">PX</text>
+  <text x="230" y="206" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.4" fill="#3E4744">two founders</text>
 
-  <!-- split -->
-  <path d="M248 165H330" stroke="#2A3233" stroke-width="1" fill="none"/>
-  <path d="M330 165V105H420" stroke="#2A3233" stroke-width="1" fill="none"/>
-  <path d="M330 165V225H420" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
+  <!-- split into two branches -->
+  <path d="M234 150H320" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M320 150V95H680" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M320 150V205H680" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
 
-  <circle cx="432" cy="105" r="4" fill="#E8EDEB"/>
-  <text x="446" y="109" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">BRANCH I — HAWK</text>
-  <text x="446" y="129" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.2" fill="#3E4744">growing separately</text>
+  <circle cx="380" cy="95" r="4" fill="#E8EDEB"/>
+  <text x="396" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="1.2" fill="#E8EDEB">BRANCH I — HAWK</text>
+  <text x="396" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1" fill="#3E4744">growing separately</text>
 
-  <circle cx="432" cy="225" r="4" fill="#8AF5C0"/>
-  <text x="446" y="229" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#8AF5C0">BRANCH II — VOIDX</text>
-  <text x="446" y="249" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.2" fill="#3E4744">the half i lead · 50% of PX</text>
+  <circle cx="380" cy="205" r="4" fill="#8AF5C0"/>
+  <text x="396" y="226" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="1.2" fill="#8AF5C0">BRANCH II — VOIDX</text>
+  <text x="396" y="244" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1" fill="#3E4744">the half i lead · 50% of PX</text>
 
-  <!-- time skip band -->
-  <rect x="640" y="88" width="2" height="154" fill="#1C2223"/>
-  <text x="652" y="150" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="4" fill="#3E4744">2.5 YEAR</text>
-  <text x="652" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="4" fill="#3E4744">TIME SKIP</text>
+  <!-- time skip marker -->
+  <path d="M680 78V222" stroke="#1C2223" stroke-width="1" stroke-dasharray="2 4" fill="none"/>
+  <text x="680" y="64" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.5" fill="#3E4744">2.5 YEAR TIME SKIP</text>
 
-  <!-- recombine -->
-  <path d="M660 105H790V165" stroke="#2A3233" stroke-width="1" fill="none"/>
-  <path d="M660 225H790V165" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
-  <path d="M790 165H900" stroke="#8AF5C0" stroke-width="1" opacity="0.8" fill="none"/>
+  <!-- recombination -->
+  <path d="M680 95H720V150" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M680 205H720V150" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
+  <path d="M720 150H790" stroke="#8AF5C0" stroke-width="1" opacity="0.8" fill="none"/>
 
-  <circle cx="914" cy="165" r="5" fill="#8AF5C0"/>
-  <text x="914" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">PX · III</text>
-  <text x="914" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">planned recombination</text>
+  <circle cx="800" cy="150" r="5" fill="#8AF5C0"/>
+  <text x="800" y="188" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="1.4" fill="#E8EDEB">PX · III</text>
+  <text x="800" y="206" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.2" fill="#3E4744">planned recombination</text>
 
-  <!-- dashed future -->
-  <path d="M924 165H1050" stroke="#3E4744" stroke-width="1" stroke-dasharray="3 5" fill="none"/>
-  <text x="1062" y="169" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="3" fill="#3E4744">NEXT</text>
+  <!-- future -->
+  <path d="M810 150H930" stroke="#3E4744" stroke-width="1" stroke-dasharray="3 5" fill="none"/>
+  <text x="940" y="154" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="3" fill="#3E4744">NEXT</text>
 </svg>
