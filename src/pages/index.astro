@@ -1,339 +1,327 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
+const asset = (p: string) => `${BASE === '/' ? '' : BASE}/${p}`;
+
+const systems = [
   {
     name: 'Emma',
-    description: 'Personal AI OS — planning, management, scheduling, voice assistant. FastAPI, 4-tier memory, local LLMs, dependency injection, Postgres-ready.',
-    tags: ['Python', 'FastAPI', 'Ollama', 'Vosk', 'Piper TTS', 'SQLite'],
+    kind: 'personal AI OS',
+    desc: 'Orchestration, tiered memory, voice, scheduling. The interface, not a chat window.',
+    stack: 'Python · FastAPI · Ollama · Vosk',
     url: 'https://github.com/DankChamp/emma',
-    stars: 2,
-    color: 'void',
   },
   {
     name: 'Luna',
-    description: 'Coding & software engineering agent. Highly customizable, tool calling, agent orchestration, local-first. Opencode on steroids.',
-    tags: ['Python', 'Rich', 'Prompt Toolkit', 'Anthropic', 'OpenAI', 'SQLAlchemy'],
+    kind: 'coding agent',
+    desc: 'Tool calling, sessions, local-first. A harness built around how I actually work.',
+    stack: 'Python · SQLAlchemy · LLM APIs',
     url: 'https://github.com/DankChamp/luna',
-    stars: 1,
-    color: 'cyber',
   },
   {
     name: 'Aqua',
-    description: 'Research & study assistant. Quizzes, knowledge capture, literature review, web search. Locally hosted, privacy-first, ChromaDB vector search.',
-    tags: ['Python', 'FastAPI', 'ChromaDB', 'DuckDuckGo', 'Sentence Transformers'],
+    kind: 'research → automation',
+    desc: 'Document ingestion and study tooling, moving toward an automation engine.',
+    stack: 'Python · ChromaDB · ONNX',
     url: 'https://github.com/DankChamp/aqua',
-    stars: 1,
-    color: 'cyber',
   },
   {
-    name: 'VOIDX',
-    description: 'PX Organization flagship — full-stack gaming platform: tournaments, auth, notifications, future wallet. React + TypeScript + FastAPI.',
-    tags: ['React', 'TypeScript', 'FastAPI', 'SQLAlchemy', 'JWT', 'Zustand'],
-    url: 'https://github.com/DankChamp/VOIDX',
-    stars: 1,
-    color: 'warning',
-  },
-  {
-    name: 'Nebula GTK',
-    description: 'GTK4/libadwaita frontend for Void Linux package management (XBPS). Waypoint/Btrfs snapshot integration. Rust + GTK 4.',
-    tags: ['Rust', 'GTK 4', 'libadwaita', 'XBPS', 'Void Linux', 'Btrfs'],
+    name: 'Nebula',
+    kind: 'systems tooling',
+    desc: 'A native GTK4 frontend for XBPS. Package management that belongs on Void.',
+    stack: 'Rust · GTK 4 · libadwaita',
     url: 'https://github.com/DankChamp/nebula-gtk',
-    stars: 0,
-    color: 'void',
+  },
+  {
+    name: 'ntxt',
+    kind: 'realtime comms',
+    desc: 'Two-person messaging with presence, voice, and video. Built for one conversation.',
+    stack: 'JavaScript · Firebase · WebRTC',
+    url: null,
   },
   {
     name: 'DevPair',
-    description: 'Real-time collaborative task board + AI pair programming. Shared Groq key, multi-project, server-side sync. HTML/JS/PHP.',
-    tags: ['HTML', 'JavaScript', 'PHP', 'Groq API', 'Real-time'],
+    kind: 'collaboration',
+    desc: 'Shared task board and AI pair programming for a small team.',
+    stack: 'HTML · JavaScript · PHP · Groq',
     url: 'https://github.com/DankChamp/dev-pair',
-    stars: 2,
-    color: 'warning',
   },
 ];
 
-const skills = [
-  { category: 'Languages', items: ['Python', 'Rust', 'TypeScript', 'Shell', 'JavaScript', 'HTML/CSS'] },
-  { category: 'AI/ML', items: ['Ollama', 'Local LLMs', 'Tool Calling', 'Agent Orchestration', 'RAG', 'Vector Search'] },
-  { category: 'Backend', items: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'SQLite', 'Redis', 'WebSockets'] },
-  { category: 'Frontend', items: ['React', 'Vite', 'Zustand', 'Tailwind', 'TypeScript', 'Astro'] },
-  { category: 'Systems', items: ['Void Linux', 'GTK 4', 'libadwaita', 'XBPS', 'runit', 'Docker'] },
-  { category: 'Hardware', items: ['Raspberry Pi', 'LoRa', 'ESP32', 'Electronics', 'PC Building', 'Btrfs'] },
-  { category: 'Tools', items: ['Git', 'GitHub Actions', 'Dependabot', 'CodeQL', 'Ruff', 'Mypy', 'Clippy'] },
+const stack = [
+  ['languages', 'Python · Rust · Bash · TypeScript · HTML/CSS'],
+  ['systems', 'Void Linux · runit · XBPS · musl · GTK 4 · Docker'],
+  ['ai', 'Ollama · local LLMs · tool calling · agents · RAG · ChromaDB'],
+  ['backend', 'FastAPI · SQLAlchemy · Postgres · SQLite · WebSockets · Firebase'],
+  ['frontend', 'Astro · Tailwind · React · HTMX'],
+  ['hardware', 'ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa'],
 ];
 
 const timeline = [
-  { year: '2024', title: 'Started VOID Persona', description: 'Defined identity as student dev & R&D builder. Linux, AI, Rust, Python, robotics, hardware focus.', type: 'milestone' },
-  { year: '2024', title: 'Emma — Personal AI OS', description: 'Built 4-tier memory system, voice interface (Vosk + Piper), FastAPI backend, PySide6 GUI, runit service.', type: 'project' },
-  { year: '2024', title: 'Luna — Coding Agent', description: 'Opencode-style CLI agent with tool calling, session persistence, multi-provider LLM support.', type: 'project' },
-  { year: '2024', title: 'Aqua — Research Agent', description: 'Study assistant with quiz generation, ChromaDB vector search, web search, document ingestion.', type: 'project' },
-  { year: '2024', title: 'VOIDX — Gaming Platform', description: 'Full-stack React + FastAPI gaming platform for PX Organization. Auth, tournaments, notifications.', type: 'project' },
-  { year: '2024', title: 'Nebula GTK', description: 'GTK4/libadwaita Void Linux package manager. Waypoint/Btrfs snapshot integration. Rust.', type: 'project' },
-  { year: '2024', title: 'PX Organization Founded', description: 'Co-founded tech organization focused on software, AI, innovation, and future tech ventures.', type: 'milestone' },
-  { year: '2024', title: 'ZappInnovate COO', description: 'Robotics workshops & STEM education. Leading operations for educational technology startup.', type: 'role' },
-  { year: '2024', title: 'BroniqLabs Lead Web Dev', description: 'Web development & technology work. Building client projects and internal tools.', type: 'role' },
-  { year: '2023', title: 'Void Linux Daily Driver', description: 'Switched to Void Linux (runit + XBPS) on ThinkPad T490. Deep dive into Linux systems.', type: 'milestone' },
-  { year: '2022', title: 'First AI Experiments', description: 'Started experimenting with local LLMs, Ollama, prompt engineering, agent concepts.', type: 'milestone' },
-];
-
-const stats = [
-  { label: 'Repos', value: '6' },
-  { label: 'Languages', value: '6+' },
-  { label: 'Years Coding', value: '3+' },
-  { label: 'Projects', value: '15+' },
+  ['now', 'VOIDX branch of PX', 'Building the operating layer, the agents, and the people around them.'],
+  ['now', 'PX · III', 'Recombination planned with the other half of PX after a 2.5-year split.'],
+  ['recent', 'Local-first AI ecosystem', 'Emma, Luna, and Aqua running on one ThinkPad instead of a rented server.'],
+  ['recent', 'Nebula', 'GTK4/libadwaita package manager for Void Linux.'],
+  ['earlier', 'PX Organization', 'Two founders, one organization, grown from PS Foundation.'],
+  ['earlier', 'Void Linux', 'runit + XBPS as the daily driver. The start of caring about internals.'],
 ];
 ---
 
-<Layout title="VOID — Student Dev & R&D Builder" description="Student developer & R&D enthusiast building with Linux, AI, Rust, Python, robotics, electronics, and open-source tech. Founder/co-founder across PX Organization, HyperClutch, ZappInnovate.">
-  <!-- Hero Section -->
-  <section class="relative min-h-[90vh] flex items-center justify-center px-6">
-    <div class="max-w-7xl mx-auto w-full">
-      <div class="text-center reveal">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-[var(--accent)] font-mono text-xs uppercase tracking-wider mb-6">
-          <span class="relative">
-            <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse"></span>
-            <span class="relative z-10">building in public</span>
-          </span>
-        </div>
+<Layout title="VOID — student, systems builder, co-founder of PX">
+  <!-- hero -->
+  <section class="wrap flex min-h-[86vh] flex-col justify-center py-24">
+    <div class="reveal">
+      <div class="mb-8 flex items-center gap-3">
+        <span class="h-px w-8 bg-[var(--accent)]"></span>
+        <span class="label">x in the void</span>
+      </div>
 
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-mono leading-tight mb-6">
-          <span class="glitch" data-text="VOID">VOID</span>
-          <span class="text-[var(--text-secondary)]">.</span>
-        </h1>
+      <h1 class="font-mono text-[19vw] font-bold leading-[0.82] tracking-[0.02em] sm:text-[13rem]">
+        VOID<span class="text-[var(--accent)]">.</span>
+      </h1>
 
-        <p class="text-xl md:text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-10 font-light">
-          Student dev & R&D builder · Linux · AI agents · Rust · Python · robotics · hardware
+      <div class="mt-8 max-w-xl">
+        <p class="text-lg text-[var(--fg-2)] sm:text-xl">
+          Student. Systems builder. Co-founder of <strong class="font-normal text-[var(--fg)]">PX</strong> and head of
+          <strong class="font-normal text-[var(--fg)]">VOIDX</strong> — one of its two halves.
         </p>
+      </div>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="#projects" class="btn-primary">
-            View Projects
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </a>
-          <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-secondary">
-            GitHub
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          </a>
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="#systems" class="btn">systems</a>
+        <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-ghost">github</a>
+        <a href="mailto:void@px.org" class="btn-ghost">void@px.org</a>
+      </div>
+
+      <div class="mt-16 grid max-w-2xl grid-cols-2 gap-px border border-[var(--line)] bg-[var(--line)] sm:grid-cols-4">
+        {[
+          ['role', 'co-founder'],
+          ['org', 'PX / VOIDX'],
+          ['os', 'void linux'],
+          ['focus', 'local-first ai'],
+        ].map(([k, v]) => (
+          <div class="bg-[var(--bg)] px-4 py-4">
+            <div class="label mb-1">{k}</div>
+            <div class="font-mono text-xs text-[var(--fg)]">{v}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 about -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">01</span>
+        <h2>whoami</h2>
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div class="prose-dim reveal">
+          <p>
+            I learn by <strong>building</strong> — working code first, theory second. I prefer lightweight,
+            inspectable, open systems over heavy defaults, and I would rather understand a mechanism than
+            accept it.
+          </p>
+          <p>
+            Most of my work sits between <strong>AI systems</strong> and <strong>Linux internals</strong>: agents that
+            run on my own machine, tools that replace something I found too heavy, and small experiments that
+            teach me how the thing actually works.
+          </p>
+          <p>
+            I care about things that outlive the moment they were made — tools, notes, organizations, and the
+            people who can keep them running without me in the room.
+          </p>
         </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {stats.map(stat => (
-            <div class="text-center reveal">
-              <div class="stat-number">{stat.value}</div>
-              <div class="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider">{stat.label}</div>
-            </div>
-          ))}
+        <div class="terminal reveal">
+          <div class="terminal-head">
+            <span class="dot bg-[var(--fg-3)]"></span>
+            <span class="dot bg-[var(--fg-3)]"></span>
+            <span class="dot bg-[var(--accent)]"></span>
+            <span class="ml-2 font-mono text-[10px] tracking-[0.2em] text-[var(--fg-3)]">~/.void</span>
+          </div>
+          <pre class="overflow-x-auto p-5 font-mono text-[12.5px] leading-relaxed text-[var(--fg-2)]"><code>{`role      student · systems builder · co-founder
+org       PX  →  VOIDX (the half I lead)
+os        Void Linux · runit · XBPS
+machine   ThinkPad T490 · i7-8th · 16 GB
+focus     local-first AI · Linux internals · Rust
+principle if a tool limits me for no reason,
+          I want to know what is underneath it`}</code></pre>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="section-divider"><span>about</span></div>
+  <!-- 02 doctrine -->
+  <section id="doctrine" class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">02</span>
+        <h2>doctrine</h2>
+      </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <ol class="max-w-3xl space-y-6">
+        {[
+          ['Question what exists.', 'Age, popularity, and authority are not arguments.'],
+          ['Understand before expanding.', 'Small working parts before enormous architectures.'],
+          ['Build alternatives.', 'When a tool refuses to be understood, investigate what it replaced.'],
+          ['Make privacy structural.', 'Not a promise — a property of the system.'],
+          ['Separate identity from contribution.', 'The work should be able to speak first.'],
+          ['Design for continuity.', 'A system that dies with its creator was a demo.'],
+          ['Build without guaranteed meaning.', 'The absence of universal purpose does not prevent deliberate creation.'],
+        ].map(([title, body], i) => (
+          <li class="reveal flex gap-5 border-l border-[var(--line)] pl-5">
+            <span class="mt-1 font-mono text-[11px] text-[var(--accent)]">{String(i + 1).padStart(2, '0')}</span>
+            <p class="text-[var(--fg-2)]">
+              <strong class="font-normal text-[var(--fg)]">{title}</strong> {body}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 lineage -->
+  <section id="lineage" class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">03</span>
+        <h2>lineage</h2>
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
+        <div class="prose-dim reveal">
+          <p>
+            <strong>PX is two halves. VOIDX is mine.</strong>
+          </p>
+          <p>
+            PX began as PS Foundation and became PX Organization — built by two founders who had worked
+            together for years. When one of them left for college, the split was not an ending. It was a
+            <strong>2.5-year time skip</strong>: two founders, two branches, growing separately on purpose,
+            each proving the model on their own terms.
+          </p>
+          <p>
+            I lead <strong>VOIDX</strong> — half of PX, not a side project and not a sub-brand. The other half
+            runs under <strong>Hawk</strong>. The recombination is already planned: not a merger back into the old
+            shape, but a <strong>third variant</strong> — the version that only exists because both halves grew up
+            first.
+          </p>
+        </div>
+
         <div class="reveal">
-          <h2 class="text-3xl md:text-4xl font-bold font-mono mb-6">
-            <span class="text-[var(--accent)]">whoami</span>
-          </h2>
-          <div class="space-y-4 text-[var(--text-secondary)] leading-relaxed">
-            <p>I learn by <strong class="text-[var(--text-primary)]">building</strong> — concepts through working code before theory. I prefer <strong class="text-[var(--text-primary)]">lightweight, customizable, open-source</strong> software and reject unnecessary bloat.</p>
-            <p>Currently a <strong class="text-[var(--accent)]">student (CBSE Class 10)</strong> independently learning software engineering and advanced technology outside school. Running <strong class="text-[var(--accent)]">Void Linux</strong> (runit + XBPS) on a ThinkPad T490 as my daily driver.</p>
-            <p>Building a <strong class="text-[var(--cyber)]">personal multi-agent AI ecosystem</strong> — Emma (personal OS), Luna (coding agent), Aqua (research agent) — with the long-term goal of an interconnected second brain.</p>
-          </div>
-
-          <div class="mt-8 flex flex-wrap gap-2">
-            {['Void Linux', 'AI Agents', 'Rust', 'Python', 'Robotics', 'Electronics', 'Open Source', 'Self-Hosted'].map(tag => (
-              <span class="badge badge-void">{tag}</span>
+          <img src={asset('assets/lineage.svg')} alt="PX lineage diagram" class="w-full border border-[var(--line)]" />
+          <div class="mt-4 grid grid-cols-3 gap-px border border-[var(--line)] bg-[var(--line)] text-center">
+            {[
+              ['I', 'hawk'],
+              ['II', 'voidx'],
+              ['III', 'planned'],
+            ].map(([n, who]) => (
+              <div class="bg-[var(--bg)] px-2 py-3">
+                <div class="font-mono text-[11px] text-[var(--accent)]">{n}</div>
+                <div class="label mt-1">{who}</div>
+              </div>
             ))}
           </div>
         </div>
-
-        <div class="reveal">
-          <div class="terminal">
-            <div class="terminal-header">
-              <span class="terminal-dot red"></span>
-              <span class="terminal-dot.yellow"></span>
-              <span class="terminal-dot.green"></span>
-              <span class="font-mono text-xs text-[var(--text-secondary)]">~/void $ whoami</span>
-            </div>
-            <pre class="font-mono text-sm whitespace-pre-wrap text-[var(--text-primary)]"><code>{`$ cat /etc/os-release
-NAME="Void Linux"
-INIT="runit"
-PACKAGE_MANAGER="XBPS"
-
-$ cat ~/.config/void/profile
-handle=VOID
-role=student | dev | builder | R&D enthusiast
-os=Void Linux (runit + XBPS)
-hardware=ThinkPad T490 | i7-8th | 16GB RAM
-
-$ ls ~/projects/ai/
-emma/    # personal OS, planning, voice, 4-tier memory
-luna/    # coding agent, tool calling, orchestration
-aqua/    # research, quizzes, ChromaDB, web search
-
-$ ls ~/projects/orgs/
-px-organization/      # co-founder, software & AI ventures
-hyperclutch/          # flagship gaming platform
-zappinnovate/         # COO, robotics & STEM workshops
-broniqlabs/           # lead web dev, client projects
-
-$ cat ~/philosophy.txt
-"build things, understand how they work,
-automate repetitive work, prefer open-source,
-learn through actually making projects."
-            `}</code></pre>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-24 px-6 bg-[var(--bg-secondary)]/50">
-    <div class="max-w-7xl mx-auto">
-      <div class="section-divider"><span>projects</span></div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, i) => (
-          <article class="project-card reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-            <div class="absolute top-4 right-4">
-              <span class={`badge badge-${project.color}`}>{project.color === 'void' ? 'AI' : project.color === 'cyber' ? 'Agent' : 'Full-Stack'}</span>
-            </div>
-
-            <h3 class="text-xl font-bold font-mono mb-2 flex items-center gap-2">
-              <a href={project.url} target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition-colors">{project.name}</a>
-              <a href={project.url} target="_blank" rel="noopener" class="text-[var(--text-secondary)] hover:text-[var(--accent)] text-sm" aria-label="GitHub">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-            </h3>
-
-            <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">{project.description}</p>
-
-            <div class="project-card-tags">
-              {project.tags.slice(0, 5).map(tag => (
-                <span class="text-xs px-2 py-1 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border)]">{tag}</span>
-              ))}
-              {project.tags.length > 5 && (
-                <span class="text-xs px-2 py-1 rounded bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border)]">+{project.tags.length - 5}</span>
-              )}
-            </div>
-
-            <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs text-[var(--text-secondary)]">
-              <span>⭐ {project.stars}</span>
-              <span class="font-mono">{project.color === 'void' ? 'Python' : project.color === 'cyber' ? 'Python' : 'TypeScript'}</span>
-            </div>
-          </article>
-        ))}
+  <!-- 04 systems -->
+  <section id="systems" class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">04</span>
+        <h2>systems</h2>
       </div>
 
-      <div class="text-center mt-12 reveal">
-        <a href="https://github.com/DankChamp?tab=repositories" target="_blank" rel="noopener" class="btn-secondary">
-          All Repositories
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-24 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="section-divider"><span>tech stack</span></div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skills.map((skill, i) => (
-          <div class="card reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-            <h3 class="font-mono text-lg font-semibold text-[var(--accent)] mb-4 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-              {skill.category}
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              {skill.items.map(item => (
-                <span class="badge badge-void">{item}</span>
-              ))}
+      <div>
+        {systems.map((s) => (
+          <div class="row-link reveal">
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-baseline gap-3">
+                {s.url ? (
+                  <a href={s.url} target="_blank" rel="noopener" class="font-mono text-base text-[var(--fg)] hover:text-[var(--accent)]">
+                    {s.name}
+                  </a>
+                ) : (
+                  <span class="font-mono text-base text-[var(--fg)]">{s.name}</span>
+                )}
+                <span class="label">{s.kind}</span>
+              </div>
+              <p class="mt-1 max-w-xl text-sm text-[var(--fg-3)]">{s.desc}</p>
             </div>
+            <div class="shrink-0 text-right font-mono text-[11px] text-[var(--fg-3)]">{s.stack}</div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- Timeline Section -->
-  <section id="timeline" class="py-24 px-6 bg-[var(--bg-secondary)]/50">
-    <div class="max-w-3xl mx-auto">
-      <div class="section-divider"><span>timeline</span></div>
-
-      <div class="space-y-0">
-        {timeline.map((item, i) => (
-          <div class="timeline-item reveal" style={{ transitionDelay: `${i * 50}ms` }}>
-            <div class="flex items-baseline gap-3 mb-2">
-              <span class="font-mono text-lg font-bold text-[var(--accent)] min-w-[80px]">{item.year}</span>
-              <span class={`badge badge-${item.type === 'milestone' ? 'void' : item.type === 'project' ? 'cyber' : 'warning'}`}>
-                {item.type === 'milestone' ? 'Milestone' : item.type === 'project' ? 'Project' : 'Role'}
-              </span>
-            </div>
-            <h4 class="text-lg font-semibold mb-1">{item.title}</h4>
-            <p class="text-[var(--text-secondary)] text-sm">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <div class="section-divider"><span>contact</span></div>
-
-      <h2 class="text-3xl md:text-4xl font-bold font-mono mb-4 reveal">
-        Let's <span class="text-[var(--accent)]">build</span> something
-      </h2>
-      <p class="text-[var(--text-secondary)] mb-10 max-w-xl mx-auto reveal">
-        Open to internships, collaborations, and interesting problems.
-        Currently seeking opportunities in backend engineering, AI/ML, systems programming, or robotics.
+      <p class="mt-8 max-w-2xl text-sm text-[var(--fg-3)]">
+        Two agents are not three chat windows. Each has its own process, configuration, memory, and job. A
+        separate second brain is planned to connect them without collapsing them.
       </p>
+    </div>
+  </section>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal">
-        <a href="mailto:void@px.org" class="btn-primary">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Email Me
-        </a>
-        <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-secondary">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.305-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="/resume.pdf" class="btn-ghost">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-          Resume
-        </a>
+  <!-- 05 stack -->
+  <section id="stack" class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">05</span>
+        <h2>stack</h2>
       </div>
 
-      <div class="mt-16 reveal">
-        <div class="terminal max-w-md mx-auto">
-          <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot.yellow"></span>
-            <span class="terminal-dot.green"></span>
-            <span class="font-mono text-xs text-[var(--text-secondary)]">~/void $ git commit -m "build things, understand how they work"</span>
+      <div class="border border-[var(--line)]">
+        {stack.map(([k, v], i) => (
+          <div class={`grid gap-2 px-5 py-4 sm:grid-cols-[160px_1fr] ${i !== 0 ? 'border-t border-[var(--line)]' : ''}`}>
+            <span class="label pt-1">{k}</span>
+            <span class="font-mono text-[12.5px] text-[var(--fg-2)]">{v}</span>
           </div>
-          <pre class="font-mono text-sm whitespace-pre-wrap text-[var(--text-primary)]"><code>{`[main 7f3a2b1] build things, understand how they work
- 1 file changed, 1 insertion(+)
- create mode 100644 portfolio/index.html
+        ))}
+      </div>
+    </div>
+  </section>
 
-$ git push origin main
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 1.2 KiB | 1.2 MiB/s, done.
-To https://github.com/DankChamp/dankchamp.github.io.git
-   a1b2c3d..7f3a2b1  main -> main
+  <!-- 06 timeline -->
+  <section id="timeline" class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="num">06</span>
+        <h2>signal</h2>
+      </div>
 
-$ echo "deployed to github pages ✓"
-deployed to github pages ✓`}</code></pre>
+      <div class="max-w-3xl">
+        {timeline.map(([when, what, desc]) => (
+          <div class="reveal grid gap-2 border-b border-[var(--line)] py-5 sm:grid-cols-[90px_1fr]">
+            <span class="label pt-1">{when}</span>
+            <div>
+              <div class="text-[var(--fg)]">{what}</div>
+              <p class="mt-1 text-sm text-[var(--fg-3)]">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="section border-t border-[var(--line)]">
+    <div class="wrap">
+      <div class="reveal max-w-2xl">
+        <p class="label mb-6">07 · contact</p>
+        <h2 class="mb-6 font-mono text-3xl leading-tight sm:text-4xl">
+          Build something that<br />outlives the conversation.
+        </h2>
+        <p class="mb-8 text-[var(--fg-2)]">
+          Open to collaborations, research, and problems worth understanding. Email is the reliable channel.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="mailto:void@px.org" class="btn">void@px.org</a>
+          <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-ghost">github</a>
+          <a href="https://github.com/DankChamp/void" target="_blank" rel="noopener" class="btn-ghost">source</a>
         </div>
       </div>
     </div>

@@ -1,0 +1,45 @@
+name: sync profile readme
+
+# GitHub only renders a profile README from a repo named after the user
+# (DankChamp/DankChamp). This keeps that repo a mirror of this README.
+# Requires a fine-grained PAT with contents:write on DankChamp/DankChamp,
+# stored as the PROFILE_TOKEN secret. Without it, the job skips quietly.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - public/assets/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Mirror README into profile repo
+        env:
+          TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TOKEN:-}" ]; then
+            echo "PROFILE_TOKEN is not set — skipping profile sync."
+            exit 0
+          fi
+          git clone --depth 1 "https://x-access-token:${TOKEN}@github.com/DankChamp/DankChamp.git" profile
+          cp README.md profile/README.md
+          cd profile
+          git config user.name "void"
+          git config user.email "void@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "profile README already up to date."
+            exit 0
+          fi
+          git commit -m "chore: sync profile from DankChamp/void"
+          git push
