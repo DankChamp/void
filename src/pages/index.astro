@@ -118,7 +118,7 @@ const timeline = [
         <h2>whoami</h2>
       </div>
 
-      <div class="grid gap-12 lg:grid-cols-2">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
         <div class="prose-dim reveal">
           <p>
             I learn by <strong>building</strong> — working code first, theory second. I prefer lightweight,
@@ -136,7 +136,7 @@ const timeline = [
           </p>
         </div>
 
-        <div class="terminal reveal">
+        <div class="terminal reveal min-w-0 overflow-hidden">
           <div class="terminal-head">
             <span class="dot bg-[var(--fg-3)]"></span>
             <span class="dot bg-[var(--fg-3)]"></span>
@@ -192,7 +192,7 @@ principle if a tool limits me for no reason,
         <h2>lineage</h2>
       </div>
 
-      <div class="grid gap-12">
+      <div class="grid grid-cols-1 gap-12">
         <div class="prose-dim reveal max-w-2xl">
           <p>
             <strong>PX is two halves. VOIDX is mine.</strong>
@@ -240,7 +240,7 @@ principle if a tool limits me for no reason,
 
       <div>
         {systems.map((s) => (
-          <div class="row-link reveal">
+          <div class="row-link reveal flex-col sm:flex-row">
             <div class="min-w-0">
               <div class="flex flex-wrap items-baseline gap-3">
                 {s.url ? (
@@ -254,7 +254,7 @@ principle if a tool limits me for no reason,
               </div>
               <p class="mt-1 max-w-xl text-sm text-[var(--fg-3)]">{s.desc}</p>
             </div>
-            <div class="shrink-0 text-right font-mono text-[11px] text-[var(--fg-3)]">{s.stack}</div>
+            <div class="shrink-0 font-mono text-[11px] text-[var(--fg-3)] sm:text-right">{s.stack}</div>
           </div>
         ))}
       </div>
