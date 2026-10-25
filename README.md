@@ -159,7 +159,7 @@ hardware    ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa
 <p align="center">
   <a href="https://dankchamp.github.io/void"><img alt="portfolio" src="https://img.shields.io/badge/read-the%20long%20version-8AF5C0?style=for-the-badge&labelColor=0A0D0E" /></a>
   <a href="https://github.com/DankChamp?tab=repositories"><img alt="repos" src="https://img.shields.io/badge/browse-repositories-0A0D0E?style=for-the-badge&labelColor=0A0D0E" /></a>
-  <a href="mailto:void@px.org"><img alt="mail" src="https://img.shields.io/badge/void%40px.org-0A0D0E?style=for-the-badge&logo=maildotru&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
+  <a href="mailto:px.void.00@gmail.com"><img alt="mail" src="https://img.shields.io/badge/px.void.00%40gmail.com-0A0D0E?style=for-the-badge&logo=maildotru&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
 </p>
 
 <br/>
