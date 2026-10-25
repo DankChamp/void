@@ -16,15 +16,15 @@
   <text x="86" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">origin</text>
 
   <!-- origin -> PX -->
-  <path d="M90 165H232" stroke="#2A3233" stroke-width="1"/>
+  <path d="M90 165H232" stroke="#2A3233" stroke-width="1" fill="none"/>
   <circle cx="244" cy="165" r="4" fill="#E8EDEB"/>
   <text x="244" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">PX</text>
   <text x="244" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">two founders</text>
 
   <!-- split -->
-  <path d="M248 165H330" stroke="#2A3233" stroke-width="1"/>
-  <path d="M330 165V105H420" stroke="#2A3233" stroke-width="1"/>
-  <path d="M330 165V225H420" stroke="#8AF5C0" stroke-width="1" opacity="0.55"/>
+  <path d="M248 165H330" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M330 165V105H420" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M330 165V225H420" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
 
   <circle cx="432" cy="105" r="4" fill="#E8EDEB"/>
   <text x="446" y="109" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">BRANCH I — HAWK</text>
@@ -40,15 +40,15 @@
   <text x="652" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="4" fill="#3E4744">TIME SKIP</text>
 
   <!-- recombine -->
-  <path d="M660 105H790V165" stroke="#2A3233" stroke-width="1"/>
-  <path d="M660 225H790V165" stroke="#8AF5C0" stroke-width="1" opacity="0.55"/>
-  <path d="M790 165H900" stroke="#8AF5C0" stroke-width="1" opacity="0.8"/>
+  <path d="M660 105H790V165" stroke="#2A3233" stroke-width="1" fill="none"/>
+  <path d="M660 225H790V165" stroke="#8AF5C0" stroke-width="1" opacity="0.55" fill="none"/>
+  <path d="M790 165H900" stroke="#8AF5C0" stroke-width="1" opacity="0.8" fill="none"/>
 
   <circle cx="914" cy="165" r="5" fill="#8AF5C0"/>
   <text x="914" y="205" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" letter-spacing="1.5" fill="#E8EDEB">PX · III</text>
   <text x="914" y="226" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="1.5" fill="#3E4744">planned recombination</text>
 
   <!-- dashed future -->
-  <path d="M924 165H1050" stroke="#3E4744" stroke-width="1" stroke-dasharray="3 5"/>
+  <path d="M924 165H1050" stroke="#3E4744" stroke-width="1" stroke-dasharray="3 5" fill="none"/>
   <text x="1062" y="169" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing="3" fill="#3E4744">NEXT</text>
 </svg>
