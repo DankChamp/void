@@ -39,13 +39,18 @@ $ cat ~/.void
 ### <samp>02 · doctrine</samp>
 
 > **I.** Question what exists. Age, popularity, and authority are not arguments.
+
 > **II.** Understand before expanding. Small working parts before enormous architectures.
+
 > **III.** Build alternatives when the existing tool refuses to be understood.
+
 > **IV.** Make privacy structural, not a promise.
+
 > **V.** Separate identity from contribution; the work should be able to speak.
+
 > **VI.** Design for continuity. A system that dies with its creator was a demo.
-> **VII.** Build even without guaranteed cosmic meaning. The absence of a universal
-> purpose does not prevent deliberate creation.
+
+> **VII.** Build even without guaranteed cosmic meaning. The absence of a universal purpose does not prevent deliberate creation.
 
 <details>
 <summary><samp>&nbsp;▸ read the rest of the manifesto</samp></summary>
@@ -99,7 +104,7 @@ but a **third variant** — the version that only exists because both halves gre
 
 ### <samp>04 · systems</samp>
 
-| system | what it is | stack | |
+| system | what it is | stack | link |
 |---|---|---|---|
 | **Emma** | personal AI OS — orchestration, memory, voice, scheduling | `Python` `FastAPI` `Ollama` `Vosk` | [repo](https://github.com/DankChamp/emma) |
 | **Luna** | coding agent — tool calling, sessions, local-first | `Python` `SQLAlchemy` `LLM APIs` | [repo](https://github.com/DankChamp/luna) |

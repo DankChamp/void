@@ -41,6 +41,7 @@ const socialImage = new URL(asset('og-image.png'), Astro.site);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
     <link rel="manifest" href={asset('manifest.json')} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body class="relative min-h-screen">
     <div class="grid-bg" aria-hidden="true"></div>
