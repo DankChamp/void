@@ -170,6 +170,7 @@ hardware    ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa
 
 <p align="center">
   <a href="https://broniqlabs.com"><img alt="BroniqLabs" src="https://img.shields.io/badge/Broniqlabs-Head%20of%20Web%20Development-0A0D0E?style=flat-square&logo=ghost&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
+  <a href="https://pxhyperclutch.site"><img alt="pxhyperclutch" src="https://img.shields.io/badge/pxhyperclutch.site-PX%20flagship-0A0D0E?style=flat-square&logo=chrome&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
   <a href="https://voidx-e4d9e.web.app"><img alt="VOIDX" src="https://img.shields.io/badge/VOIDX-official%20site-0A0D0E?style=flat-square&logo=firefox&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
 </p>
 

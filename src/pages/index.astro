@@ -16,14 +16,14 @@ const systems = [
     name: 'Luna',
     kind: 'coding agent',
     desc: 'Tool calling, sessions, local-first. A harness built around how I actually work.',
-    stack: 'Python · SQLAlchemy · LLM APIs',
+    stack: 'Python · SQLite · LLM APIs',
     url: 'https://github.com/DankChamp/luna',
   },
   {
     name: 'Aqua',
     kind: 'research → automation',
     desc: 'Document ingestion and study tooling, moving toward an automation engine.',
-    stack: 'Python · ChromaDB · ONNX',
+    stack: 'Python · ChromaDB',
     url: 'https://github.com/DankChamp/aqua',
   },
   {
@@ -108,6 +108,12 @@ const timeline = [
             <div class="font-mono text-xs text-[var(--fg)]">{v}</div>
           </div>
         ))}
+      </div>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-3 border-t border-[var(--line)] pt-8 max-w-xl">
+        <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="btn">broniq labs · head of web dev</a>
+        <a href="https://pxhyperclutch.site" target="_blank" rel="noopener" class="btn">pxhyperclutch.site · PX flagship</a>
+        <a href="https://voidx-e4d9e.web.app" target="_blank" rel="noopener" class="btn-ghost">voidx · official site</a>
       </div>
     </div>
   </section>
@@ -295,24 +301,40 @@ principle if a tool limits me for no reason,
     </div>
   </section>
 
-  <!-- 06 timeline -->
+  <!-- 06 signal -->
   <section id="timeline" class="section border-t border-[var(--line)]">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal flex items-center gap-3">
         <span class="num">06</span>
-        <h2>signal</h2>
+        <h2 class="text-[var(--fg)]">signal</h2>
+        <span class="ml-auto h-2 w-2 rounded-full bg-[var(--accent)] animate-pulse" aria-label="live"></span>
       </div>
+
+      <p class="mb-8 text-sm text-[var(--fg-3)] max-w-2xl">
+        What’s on the air right now — across VOIDX, PX, and the bench.
+      </p>
 
       <div class="max-w-3xl">
         {timeline.map(([when, what, desc]) => (
-          <div class="reveal grid gap-2 border-b border-[var(--line)] py-5 sm:grid-cols-[90px_1fr]">
-            <span class="label pt-1">{when}</span>
-            <div>
-              <div class="text-[var(--fg)]">{what}</div>
-              <p class="mt-1 text-sm text-[var(--fg-3)]">{desc}</p>
+          <div class="reveal grid gap-2 border-b border-[var(--line)] py-6 sm:grid-cols-[90px_1fr]">
+            <span class="label pt-1 font-mono text-[11px] text-[var(--accent)]">{when}</span>
+            <div class="pl-2 border-l-2 border-[var(--accent)]">
+              <div class="text-[var(--fg)] font-mono text-[13px] leading-tight">{what}</div>
+              <p class="mt-1.5 text-sm text-[var(--fg-3)]">{desc}</p>
             </div>
           </div>
         ))}
+
+        <div class="mt-10 pt-8 border-t border-[var(--line)]">
+          <span class="label pt-1 font-mono text-[11px] text-[var(--fg-3)]">sources</span>
+          <div class="mt-2 flex flex-wrap gap-3 text-sm text-[var(--fg-2)]">
+            <a href="https://voidx-e4d9e.web.app" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">voidx — official site</a>
+            <span class="text-[var(--fg-3)]">·</span>
+            <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">broniq labs — head of web dev</a>
+            <span class="text-[var(--fg-3)]">·</span>
+            <a href="https://pxhyperclutch.site" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">pxhyperclutch.site — PX flagship</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -333,6 +355,7 @@ principle if a tool limits me for no reason,
           <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-ghost">github</a>
           <a href="https://github.com/DankChamp/void" target="_blank" rel="noopener" class="btn-ghost">source</a>
           <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="btn-ghost">broniq labs</a>
+          <a href="https://pxhyperclutch.site" target="_blank" rel="noopener" class="btn-ghost">pxhyperclutch.site</a>
           <a href="https://voidx-e4d9e.web.app" target="_blank" rel="noopener" class="btn-ghost">voidx</a>
         </div>
       </div>
