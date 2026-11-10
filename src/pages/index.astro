@@ -50,11 +50,11 @@ const systems = [
 ];
 
 const stack = [
-  ['languages', 'Python · Rust · Bash · TypeScript · HTML/CSS'],
-  ['systems', 'Void Linux · runit · XBPS · musl · GTK 4 · Docker'],
-  ['ai', 'Ollama · local LLMs · tool calling · agents · RAG · ChromaDB'],
-  ['backend', 'FastAPI · SQLAlchemy · Postgres · SQLite · WebSockets · Firebase'],
-  ['frontend', 'Astro · Tailwind · React · HTMX'],
+  ['languages', 'Python · JSON · Rust · Bash · HTML/CSS · a bit of TypeScript'],
+  ['systems', 'personal Linux · Void Linux minimal base · Linux kernel · GTK 4 · Docker'],
+  ['ai', 'Ollama · local LLMs · tool calling · agents · RAG · neural networks'],
+  ['backend', 'FastAPI · SQLite · Firebase · Supabase · JSON'],
+  ['frontend', 'HTMX · HTML · CSS'],
   ['hardware', 'ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa'],
 ];
 
@@ -90,6 +90,8 @@ const timeline = [
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
         <a href="#systems" class="btn">systems</a>
+        <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="btn-ghost">broniq labs</a>
+        <a href="https://voidx-e4d9e.web.app" target="_blank" rel="noopener" class="btn-ghost">voidx</a>
         <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-ghost">github</a>
         <a href="mailto:px.void.00@gmail.com" class="btn-ghost">px.void.00@gmail.com</a>
       </div>
@@ -98,7 +100,7 @@ const timeline = [
         {[
           ['role', 'co-founder'],
           ['org', 'PX / VOIDX'],
-          ['os', 'void linux'],
+          ['os', 'personal linux'],
           ['focus', 'local-first ai'],
         ].map(([k, v]) => (
           <div class="bg-[var(--bg)] px-4 py-4">
@@ -134,6 +136,14 @@ const timeline = [
             I care about things that outlive the moment they were made — tools, notes, organizations, and the
             people who can keep them running without me in the room.
           </p>
+          <p>
+            I run my own Linux build: commercial <strong>Void Linux</strong> as a super-minimal base — the kernel and a
+            small foundation — with the rest of the system layered on top, the same way Ubuntu is built on Debian.
+          </p>
+          <p>
+            I also head web development at <strong>BroniqLabs</strong> and built
+            <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="text-[var(--accent)]">broniqlabs.com</a>.
+          </p>
         </div>
 
         <div class="terminal reveal min-w-0 overflow-hidden">
@@ -145,7 +155,7 @@ const timeline = [
           </div>
           <pre class="overflow-x-auto p-5 font-mono text-[12.5px] leading-relaxed text-[var(--fg-2)]"><code>{`role      student · systems builder · co-founder
 org       PX  →  VOIDX (the half I lead)
-os        Void Linux · runit · XBPS
+os        personal Linux · Void minimal base · Linux kernel
 machine   ThinkPad T490 · i7-8th · 16 GB
 focus     local-first AI · Linux internals · Rust
 principle if a tool limits me for no reason,
@@ -205,7 +215,7 @@ principle if a tool limits me for no reason,
           </p>
           <p>
             I lead <strong>VOIDX</strong> — half of PX, not a side project and not a sub-brand. The other half
-            runs under <strong>Hawk</strong>. The recombination is already planned: not a merger back into the old
+            runs under <strong>pash</strong>. The recombination is already planned: not a merger back into the old
             shape, but a <strong>third variant</strong> — the version that only exists because both halves grew up
             first.
           </p>
@@ -215,7 +225,7 @@ principle if a tool limits me for no reason,
           <img src={asset('assets/lineage.svg')} alt="PX lineage diagram" class="w-full border border-[var(--line)]" />
           <div class="mt-4 grid max-w-xl grid-cols-3 gap-px border border-[var(--line)] bg-[var(--line)] text-center">
             {[
-              ['I', 'hawk'],
+              ['I', 'pash'],
               ['II', 'voidx'],
               ['III', 'planned'],
             ].map(([n, who]) => (
@@ -322,6 +332,8 @@ principle if a tool limits me for no reason,
           <a href="mailto:px.void.00@gmail.com" class="btn">px.void.00@gmail.com</a>
           <a href="https://github.com/DankChamp" target="_blank" rel="noopener" class="btn-ghost">github</a>
           <a href="https://github.com/DankChamp/void" target="_blank" rel="noopener" class="btn-ghost">source</a>
+          <a href="https://broniqlabs.com" target="_blank" rel="noopener" class="btn-ghost">broniq labs</a>
+          <a href="https://voidx-e4d9e.web.app" target="_blank" rel="noopener" class="btn-ghost">voidx</a>
         </div>
       </div>
     </div>

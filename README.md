@@ -28,11 +28,15 @@ and the people who can keep them running without me in the room.
 $ cat ~/.void
   role      student · systems builder · co-founder
   org       PX  →  VOIDX (the half I lead)
-  os        Void Linux · runit · XBPS
+  os        personal Linux · Void Linux minimal base · Linux kernel
   machine   ThinkPad T490 · i7-8th · 16 GB
   focus     local-first AI · Linux internals · Rust · low-cost hardware
   principle if a tool limits me for no reason, I want to know what is underneath it
 ```
+
+**My OS.** I run my own Linux build. It uses commercial **Void Linux** as a super-minimal
+base — the Linux kernel and a small foundation — and I layer the rest of the system on top,
+the same way Ubuntu is built on Debian. It is light, personal, and tuned to how I work.
 
 ---
 
@@ -122,11 +126,11 @@ and job. A separate second brain is planned to connect them without collapsing t
 ### <samp>05 · stack</samp>
 
 ```txt
-languages   Python · Rust · Bash · TypeScript · HTML/CSS
+languages   Python · JSON · Rust · Bash · HTML/CSS · a bit of TypeScript
 systems     Void Linux · runit · XBPS · musl · GTK 4 · Docker
-ai          Ollama · local LLMs · tool calling · agents · RAG · ChromaDB
-backend     FastAPI · SQLAlchemy · Postgres · SQLite · WebSockets · Firebase
-frontend    Astro · Tailwind · React · HTMX
+ai          Ollama · local LLMs · tool calling · agents · RAG · neural networks
+backend     FastAPI · SQLite · Firebase · Supabase · JSON
+frontend    HTMX · HTML · CSS
 hardware    ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa
 ```
 
@@ -138,9 +142,9 @@ hardware    ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa
   <img src="https://img.shields.io/badge/Void_Linux-0A0D0E?style=flat-square&logo=linux&logoColor=8AF5C0" />
   <img src="https://img.shields.io/badge/GTK_4-0A0D0E?style=flat-square&logo=gtk&logoColor=8AF5C0" />
   <img src="https://img.shields.io/badge/FastAPI-0A0D0E?style=flat-square&logo=fastapi&logoColor=8AF5C0" />
-  <img src="https://img.shields.io/badge/PostgreSQL-0A0D0E?style=flat-square&logo=postgresql&logoColor=8AF5C0" />
+  <img src="https://img.shields.io/badge/Supabase-0A0D0E?style=flat-square&logo=supabase&logoColor=8AF5C0" />
   <img src="https://img.shields.io/badge/Ollama-0A0D0E?style=flat-square&logo=ollama&logoColor=8AF5C0" />
-  <img src="https://img.shields.io/badge/Astro-0A0D0E?style=flat-square&logo=astro&logoColor=8AF5C0" />
+  <img src="https://img.shields.io/badge/HTMX-0A0D0E?style=flat-square&logo=htmx&logoColor=8AF5C0" />
 </p>
 
 ---
@@ -160,6 +164,13 @@ hardware    ThinkPad T490 · ESP32 · Arduino · Raspberry Pi · LoRa
   <a href="https://dankchamp.github.io/void"><img alt="portfolio" src="https://img.shields.io/badge/read-the%20long%20version-8AF5C0?style=for-the-badge&labelColor=0A0D0E" /></a>
   <a href="https://github.com/DankChamp?tab=repositories"><img alt="repos" src="https://img.shields.io/badge/browse-repositories-0A0D0E?style=for-the-badge&labelColor=0A0D0E" /></a>
   <a href="mailto:px.void.00@gmail.com"><img alt="mail" src="https://img.shields.io/badge/px.void.00%40gmail.com-0A0D0E?style=for-the-badge&logo=maildotru&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
+</p>
+
+<br/>
+
+<p align="center">
+  <a href="https://broniqlabs.com"><img alt="BroniqLabs" src="https://img.shields.io/badge/Broniqlabs-Head%20of%20Web%20Development-0A0D0E?style=flat-square&logo=ghost&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
+  <a href="https://voidx-e4d9e.web.app"><img alt="VOIDX" src="https://img.shields.io/badge/VOIDX-official%20site-0A0D0E?style=flat-square&logo=firefox&logoColor=8AF5C0&labelColor=0A0D0E" /></a>
 </p>
 
 <br/>
